@@ -355,6 +355,12 @@ class SliderV2:
                 box_array = boxes[0]
                 box = box_array[:4].tolist()
                 box_conf = float(box_array[4])
+            elif len(boxes) in range(2,6):
+                # 使用max函数找到置信度最大的box
+                selected_box = max(boxes, key=lambda x: x[4])
+                box_array = selected_box
+                box = box_array[:4].tolist()
+                box_conf = float(box_array[4])     
             else:
                 segments = self.masks_to_segments(masks)
                 box_array, segment = self.pick_out_mask(boxes, segments)
