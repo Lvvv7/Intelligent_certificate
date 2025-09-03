@@ -219,8 +219,8 @@ class CertificateAutomation:
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
         options.add_experimental_option('useAutomationExtension', False)
         options.add_argument("--window-size=1280,1024")
-        # if HEADLESS:
-        #     options.add_argument("--headless")  # 无头模式，适合服务器运行
+        if HEADLESS:
+            options.add_argument("--headless")  # 无头模式，适合服务器运行
 
 
         prefs = {
